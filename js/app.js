@@ -63,6 +63,7 @@ async function createOrderInfos() {
         console.log(data)
         orderModalWrapper.querySelector("ul").innerHTML = ""
         for(let order of orders) orderModalWrapper.querySelector("ul").appendChild(createOrderModalElement(order))
+        document.querySelector(".basket-aside > h2").innerHTML = `Votre panier (0)`
         const total = Object.assign(document.createElement("li"), {className: "order-detail-total-price"})
         total.appendChild(Object.assign(document.createElement("span"), {className: "total-order-title", innerHTML: "Order total"}))
         total.appendChild(Object.assign(document.createElement("span"), {className: "total-order-price", innerHTML: `$${Number(orders.reduce((a, v) => a += v.price * v.quantity, 0)).toFixed(2)}`}))
@@ -137,6 +138,7 @@ function createPizzaElement({description, id, image, name, price}) {
             basketsWithPizzaUl.append(createOrderElement(order))
         }
         basketsWithPizza.appendChild(basketsWithPizzaUl);
+        document.querySelector(".basket-aside > h2").innerHTML = `Votre panier (${orders.reduce((a, v) => a + v.quantity, 0)})`
         for(let info of await createOrderInfos()) basketsWithPizza.appendChild(info)
     }
 
