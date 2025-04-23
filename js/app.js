@@ -82,7 +82,7 @@ function createPizzaElement({description, id, image, name, price}) {
     const pizzaItem = Object.assign(document.createElement("div"), {className: "pizza-item"})
     pizzaItem.appendChild(Object.assign(document.createElement("img"), {className: "pizza-picture", src: image, alt: name}))
     const addToCartButton = Object.assign(document.createElement("span"), {className: "add-to-cart-btn"})
-    addToCartButton.appendChild(Object.assign(document.createElement("img"), {src: "../images/carbon_shopping-cart-plus.svg", alt: "+"}))
+    addToCartButton.appendChild(Object.assign(document.createElement("img"), {src: "./images/carbon_shopping-cart-plus.svg", alt: "+"}))
     addToCartButton.appendChild(document.createTextNode("Ajouter au panier"))
     const selectItemsButton = Object.assign(document.createElement("span"), {className: "select-items-btn"})
     selectItemsButton.style.display = "none";
@@ -157,7 +157,7 @@ function createOrderElement({name, price, quantity, UUID}) {
     details.appendChild(Object.assign(document.createElement("span"), {className: "basket-product-details-unit-price"}, {innerHTML: `@ $${Number(price).toFixed(2)}`}))
     details.appendChild(Object.assign(document.createElement("span"), {className: "basket-product-details-total-price"}, {innerHTML: `$${Number(price * quantity).toFixed(2)}`}))
     orderElement.appendChild(details)
-    const remove = orderElement.appendChild(Object.assign(document.createElement("img"), {src: "../images/remove-icon.svg" , className: "basket-product-remove-icon", alt:"x"}))
+    const remove = orderElement.appendChild(Object.assign(document.createElement("img"), {src: "./images/remove-icon.svg" , className: "basket-product-remove-icon", alt:"x"}))
     remove.addEventListener("click", e => {
         orderElement.remove()
         const removedPizza = [...document.querySelectorAll(".pizzas-wrapper > *")].find(e => e.querySelector(".pizza-name").getAttribute("uuid") == UUID);
@@ -208,6 +208,6 @@ document.querySelector(".new-order-btn").addEventListener("click", () => {
         <span class="basket-product-details-unit-price">@ $5.50</span>
         <span class="basket-product-details-total-price">$5.50</span>
     </span>
-    <img class="basket-product-remove-icon" src="../images/remove-icon.svg" alt="">
+    <img class="basket-product-remove-icon" src="./images/remove-icon.svg" alt="">
 </li>
 */
