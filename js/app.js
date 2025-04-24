@@ -178,16 +178,6 @@ function createOrderElement({name, price, quantity, UUID}) {
     return orderElement
 }
 
-/*
-<li class="order-detail-product-item">
-    <img class="order-detail-product-image" src="https://cdn.dummyjson.com/recipe-images/1.webp" alt="">
-    <span class="order-detail-product-name">Pizza aux anchois</span>
-    <span class="order-detail-product-quantity">1x</span>
-    <span class="order-detail-product-unit-price">@ $5.50</span>
-    <span class="order-detail-product-total-price">$15.50</span>
-</li>
-*/
-
 function createOrderModalElement({image, name, price, quantity}) {
     const orderDetailProductItem = Object.assign(document.createElement("li"), {className: "order-detail-product-item"})
     orderDetailProductItem.appendChild(Object.assign(document.createElement("img"), {className: "order-detail-product-image", src: image}))
@@ -201,15 +191,3 @@ function createOrderModalElement({image, name, price, quantity}) {
 document.querySelector(".new-order-btn").addEventListener("click", () => {
     orderModalWrapper.style.display = "none"
 })
-
-/*
-<li class="basket-product-item">
-    <span class="basket-product-item-name">Pizza au thon</span>
-    <span class="basket-product-details">
-        <span class="basket-product-details-quantity">1x</span>
-        <span class="basket-product-details-unit-price">@ $5.50</span>
-        <span class="basket-product-details-total-price">$5.50</span>
-    </span>
-    <img class="basket-product-remove-icon" src="./images/remove-icon.svg" alt="">
-</li>
-*/
